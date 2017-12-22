@@ -2,19 +2,19 @@ package main
 
 import "fmt"
 
+var dp = [200]int64{0}
+
 func fibMemo(n int) int64 {
-	dp := make([]int64, n+1)
 	if dp[n] != 0 {
 		return dp[n]
-	}
-	var f int64 = 0
-	if n <= 2 {
-		f = 1
 	} else {
-		f = fibMemo(n-1) + fibMemo(n-2)
-		dp[n] = f
+		if n <= 2 {
+			dp[n] = 1
+		} else {
+			dp[n] = fibMemo(n-1) + fibMemo(n-2)
+		}
+		return dp[n]
 	}
-	return f
 }
 
 func fibBotUp(n int) int64 {
@@ -40,21 +40,6 @@ func fibarray(term int) []int {
 		farr[i] = farr[i-1] + farr[i-2]
 	}
 	return farr
-}
-func fibonacci(n int) (res uint64) {
-	var fibs [200]uint64
-	// memoization: check if fibonacci(n) is already known in array:
-	if fibs[n] != 0 {
-		res = fibs[n]
-		return
-	}
-	if n <= 1 {
-		res = 1
-	} else {
-		res = fibonacci(n-1) + fibonacci(n-2)
-	}
-	fibs[n] = res
-	return
 }
 
 // 尾递归优化

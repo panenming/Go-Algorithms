@@ -1,6 +1,7 @@
 package main
 
 import "fmt"
+import "time"
 
 func main() {
 	word := "aaaabbbba"
@@ -24,10 +25,12 @@ func main() {
 	fmt.Print(cutRodDp(price, length), "\n")
 	// fib数量在多于100的时候递归方式已经很难出结果，递归层级太多了
 	fmt.Println("fib-----")
-	//fmt.Println(fibMemo(100))
+	t := time.Now()
+	fmt.Println(fibMemo(100))
+	fmt.Println("fibMemo耗时：", time.Since(t))
 	fmt.Println(fibBotUp(100))
 	fmt.Println(fibarray(100)[100-1])
-	//res := fibonacci(100)
+	//res := fibonacci(40)
 	//fmt.Println(res)
 	fmt.Println(fibTail(1, 1, 98))
 }

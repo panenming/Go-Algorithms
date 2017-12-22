@@ -29,4 +29,5 @@ func main() {
 	fmt.Println(fibarray(100)[100-1])
 	//res := fibonacci(100)
 	//fmt.Println(res)
+	fmt.Println(fibTail(1, 1, 98))
 }

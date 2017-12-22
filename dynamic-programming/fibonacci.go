@@ -56,3 +56,13 @@ func fibonacci(n int) (res uint64) {
 	fibs[n] = res
 	return
 }
+
+// 尾递归优化
+func fibTail(a, b, n int64) int64 {
+	if n == 0 {
+		return a
+	} else {
+		return fibTail(a+b, a, n-1)
+	}
+
+}
